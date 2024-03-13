@@ -12,5 +12,10 @@ nvc -fPIC -shared -fopenmp -mp=gpu -I$(python -c "import numpy; print(numpy.get_
 
 # demo
 
-nsys profile --stats=true python demo.py
+nsys profile --stats=true -o ./reports/report1 python demo.py
 
+
+# profile
+nsys analyze reports/report1.sqlite
+nsys export reports/report1.nsys-rep -t text
+nsys stats reports/report1.sqlite 

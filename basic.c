@@ -37,11 +37,11 @@ static PyMethodDef MyMethods[] = {
     {NULL, NULL, 0, NULL} // Sentinel
 };
 
-static struct PyModuleDef pygpu = {
-    PyModuleDef_HEAD_INIT, "pygpu", NULL, -1, MyMethods
+static struct PyModuleDef basic = {
+    PyModuleDef_HEAD_INIT, "basic", NULL, -1, MyMethods
 };
 
-PyMODINIT_FUNC PyInit_pygpu(void) {
+PyMODINIT_FUNC PyInit_basic(void) {
     import_array(); // Crucial! Initializes NumPy API.
-    return PyModule_Create(&pygpu);
+    return PyModule_Create(&basic);
 }
